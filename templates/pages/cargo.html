@@ -1,0 +1,38 @@
+{% extends 'inicio.html' %}
+
+{% block titulo %}
+  Cargos
+{% endblock  %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/formm.css' %}">
+{% endblock  %}
+
+  {% block  contenido %}
+    
+  <div class="gojo">
+    <img style="margin-top: 7%;" src="{%static 'img/Wgojou.webp' %}" width=15%
+    height=400 alt="img">
+  </div>
+  <div class="marin">
+    <img style="margin-top: 7%;" src="{%static 'img/Kmarin.webp' %}" width=14%
+    height=400 alt="img">
+    <section class="form-container">
+      <div class='form-header'>
+        <h1>Formulario de Cargos</h1>
+      </div>
+      <form method='POST' id="form-cargo" class="form">
+        {% csrf_token %}
+        {{cargoForm.as_p}}
+        <button 
+          id="enviar"
+          type="submit"
+          name="enviar">
+          {{accion}}
+        </button>
+      </form>
+    </section>
+    
+ 
+  {% endblock %}
+  

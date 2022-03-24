@@ -1,0 +1,69 @@
+{% extends 'inicio.html' %}
+
+
+{% block titulo %}
+  Cargos
+{% endblock  %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/formm.css' %}">
+{% endblock  %}
+
+{% block  contenido %}
+
+
+    <section>
+        
+        <section class="form-container">
+            
+            <div class='form-header'>
+            <h1 class="dpto">Listado de Cargos</h1>
+            </div>
+            
+            <div class="consulta none table-responsive" id="consulta">
+                <table class="consulta-est" id="consulta-est" border="1.5">
+                    <thead>
+                        <a class="aña" href="{% url 'cargo' %}">
+                            <span>+ agregar</span>
+                        </a>
+                    <tr>
+                        <th>#</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody class="detalle-est" id="detalle-est">
+                        {% for cargo in cargos %}
+
+                            <tr>
+                                <td>{{cargo.id}}</td>
+                                <td>{{cargo.descripcion}}</td>
+                                {% if cargo.estado == True %}
+                                    <td>Activo</td>
+                                {% else %}
+                                    <td>Inactivo</td>
+                                {% endif %}
+                                
+                                <td class="accion">
+                                <a href="{% url 'editarCargo' cargo.id %}">✏️</a>
+                                <a href="{% url 'eliminarCargo' cargo.id %}">❌</a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> 
+        </section>
+        <div class="gojo">
+            <img style="margin-top: -30%;" src="{%static 'img/Wgojou.webp' %}" width=14%
+            height=400 alt="img">
+        </div>
+        
+        <div class="marin">
+            <img style="margin-top: -30%;" src="{%static 'img/Kmarin.webp' %}" width=14%
+            height=400 alt="img">
+        </div>
+         
+{% endblock  %}

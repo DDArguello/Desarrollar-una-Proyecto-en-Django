@@ -1,0 +1,79 @@
+{% extends 'inicio.html' %}
+
+{% block titulo %}
+  Empleados
+{% endblock  %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/formm.css' %}">
+{% endblock  %}
+
+{% block  contenido %}
+
+</div>
+    <section class="form-container">
+        <div class='form-header'>
+            <h1>Listado de Empleados</h1>
+        </div>
+        
+        <div class="consulta none table-responsive" id="consulta">
+            <table class="consulta-est" id="consulta-est" border="1.5">
+                <thead>
+                    <a class="aña" href="{% url 'empleado' %}">
+                        <span>+ agregar</span>
+                    </a>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Cedula</th>
+                    <th>Cargo</th>
+                    <th>Departamento</th>
+                    <th>Sueldo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                    
+                </tr>
+                </thead>
+                <tbody class="detalle-est" id="detalle-est">
+                    {% for empleado in empleados %}
+                        <tr>
+                        <td>{{empleado.codigo}}</td>
+                        <td>{{empleado.nombre}}</td>   
+                        <td>{{empleado.cedula}}</td>
+                        <td>{{empleado.cargo}}</td>
+                        <td>{{empleado.departamento}}</td>
+                        <td>{{empleado.sueldo}}</td>
+                        {% if empleado.estado == True %}
+                            <td>Activo</td>
+                        {% else %}
+                            <td>Inactivo</td>
+                        {% endif %}
+                        
+                        <td class="accion">
+                            {% comment %} <button>✏️</button>
+                            <button>❌</button> {% endcomment %}
+                            <a href="{% url 'editarEmpl' empleado.codigo %}">✏️</a>
+                            <a href="{% url 'eliminarEmpl' empleado.codigo %}">❌</a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                        </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    <!--<h1>Empleado</h1>
+    <img src="../img/Macovit_art.png" 
+    width=100% height="300" alt="logo"> -->
+    </section>
+    <div class="gojo">
+        <img style="margin-top: -30%;" src="{%static 'img/Wgojou.webp' %}" width=14%
+        height=400 alt="img">
+    </div>
+    
+    
+    <div class="marin">
+        <img style="margin-top: -30%;" src="{%static 'img/Kmarin.webp' %}" width=14%
+        height=400 alt="img">
+    
+{% endblock  %}

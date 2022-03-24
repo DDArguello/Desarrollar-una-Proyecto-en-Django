@@ -1,0 +1,129 @@
+{% extends 'inicio.html' %}
+
+{% block titulo %}
+  Empleados
+{% endblock  %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/formm.css' %}">
+{% endblock  %}
+  {% block  contenido %}
+  <div class="gojo">
+          <img src="{%static 'img/Wgojou.webp' %}" width=20%
+          height=500 alt="img">
+        </div>
+        <div class="marin">
+          <img src="{%static 'img/Kmarin.webp' %}" width=20%
+          height=500 alt="img">
+        </div>
+  <section class="form-container">
+    <div class='form-header'>
+      <h1>Formulario de Empleados</h1>
+    </div>
+    <form id="form-cargo" class="form">
+      <div class="form-group">
+        <label for="descripcion">Nombre</label>
+        <input
+          type="text"
+          name="descripcion"
+          id="descripcion"
+          placeholder="Ingrese un nombre"
+          value=""
+          required
+        />
+        <label for="descripcion">Cédula</label>
+        <input
+          type="text"
+          name="descripcion"
+          id="descripcion"
+          placeholder="Ingrese su cédula"
+          value=""
+          required
+        />
+          <label for="descripcion">Cargo</label>
+          <select class="cargo" id="cargo">
+            <option value="cargo1">Cargo 1</option>
+            <option value="cargo2">Cargo 2</option>
+            <option value="cargo3">Cargo 3</option>
+            <option value="cargo4">Cargo 4</option>
+          </select>
+          <label for="descripcion">Departamento</label>
+          <select class="departamento" id="dpto">
+            <option value="dpto1">Departamento 1</option>
+            <option value="dpto2">Departamento 2</option>
+            <option value="dpto3">Departamento 3</option>
+            <option value="dpto4">Departamento 4</option>
+          </select>
+        <label for="descripcion">Sueldo</label>
+        <input
+          type="text"
+          name="descripcion"
+          id="descripcion"
+          placeholder="Ingrese su sueldo"
+          value=""
+          required
+        />
+      </div>
+      <div class="form-check">
+        <label>Activo
+          <input type="checkbox" id="activo" checked />
+        </label>
+      </div>
+      <button 
+        id="enviar"
+        type="submit"
+        name="enviar">
+        Enviar
+      </button>
+    </form>
+    
+    <div class="consulta none table-responsive" id="consulta">
+      <h2>Listado de Empleados</h2>
+      <table class="consulta-est" id="consulta-est" border="1.5">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Cédula</th>
+            <th>Cargo</th>
+            <th>Departamento</th>
+            <th>Sueldo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="detalle-est" id="detalle-est">
+          <tr>
+            <td>1</td>
+            <td>Douglas Arguello</td>
+            <td>0957436678</td>
+            <td>Analista</td>
+            <td>Física</td>
+            <td>$525.00</td>
+            <td>Inactivo</td>
+            <td class="accion"> 
+              <button>✏️</button>
+              <button>❌</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>David Freire</td>
+            <td>0982337410</td>
+            <td>Jefe</td>
+            <td>Logistica</td>
+            <td>$752.00</td>
+            <td>Activo</td>
+            <td class="accion">
+              <button>✏️</button>
+              <button>❌</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   <!--<h1>Empleado</h1>
+   <img src="../img/Macovit_art.png" 
+   width=100% height="300" alt="logo"> -->
+  </section>
+  {% endblock  %}

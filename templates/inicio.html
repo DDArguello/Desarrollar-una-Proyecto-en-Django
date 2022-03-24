@@ -1,0 +1,63 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="es">
+  <!--Informacion de la pagina para los navegadores-->
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'img/survey.png'%}">
+    <link rel="stylesheet" href="{% static 'css/main0.css'%}">
+    <link rel="stylesheet" href="{% static 'css/headerr.css'%}">
+    {% block css %}{% endblock  %}
+    <title>{% block titulo %} Nomina {% endblock  %}</title>
+  </head>
+
+  <!--Contenido de la pagina que ven los usuarios-->
+  </h1></h1>
+  <body style="margin: 0;
+  position: relative;
+  min-height: 100%;
+  top: 0px;">
+    <!--* encabezado del sitio-->
+    <header class="header">
+      <nav class="navegacion">
+        <a href="{% url 'inicio' %}" class="logo">
+          <img src="{%static 'img/rp.webp' %}"
+           width="80x" alt="logo">
+          <div class="logo">
+            <font class="rol" color="#54E346" size="5px">R</font>ol de pagos
+          </div>
+        </a>
+        <ul class="Menu">
+          <button>
+            <li><a href="{% url 'listcargo' %}">Cargos</a></li>
+          </button>
+          <button>
+            <li><a href="{% url 'listdepa' %}">Departamentos</a></li>
+          </button>
+          <button>
+            <li><a href="{% url 'listempl' %}">Empleados</a></li>
+          </button>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+        
+        {% block  contenido %}
+        <h1 class="tit">Bienvenidos a nuestra primera página web con Django-Html-Css </h1>
+          <section class="imagen">
+            <img src="{%static 'img/F3.png' %}" 
+            width=50% height=300 alt="logo">
+            
+        {% endblock  %}
+        
+        
+    </main>
+    
+  </body>
+  <div class="cuad"> 
+    <p class="pie">&copy; 2022 - Estudiantes de Ing. en software - UNEMI</p>
+  </div>
+</html>

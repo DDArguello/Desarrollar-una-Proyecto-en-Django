@@ -1,0 +1,36 @@
+{% extends 'inicio.html' %}
+{% block titulo %}
+    Eliminar Cargo
+{% endblock %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/formm.css' %}">
+{% endblock  %}
+{% block contenido %}
+
+    <section class="form-container">
+        <div class="form-header">
+            <h1>Eliminacion de Cargos</h1>
+        </div>
+        <form method="POST" id="form-cargo" class="form">
+            {% csrf_token %}
+            <h2 style="color:white; display:flex; justify-content:center;">¿Desea Eliminar el Cargo? ➡ {{cargo.id}} - {{cargo.descripcion}}
+            </h2>
+            <button type="submit" >Eliminar</button>
+        </form>
+        <form class="form">
+            <a href={% url 'listcargo'%} >Cancelar</a>
+        </form>
+    </section>
+    <div class="gojo">
+        <img style="margin-top: -30%;" src="{%static 'img/Wgojou.webp' %}" width=14%
+        height=400 alt="img">
+    </div>
+    
+    
+    <div class="marin">
+        <img style="margin-top: -30%;" src="{%static 'img/Kmarin.webp' %}" width=14%
+        height=400 alt="img">
+    </div>
+   
+{% endblock  %} 

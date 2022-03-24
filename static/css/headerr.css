@@ -1,0 +1,68 @@
+.header{
+    background-color:var(--1-color);
+    border-radius: 15px;
+    color: var(--font-color);
+    box-shadow: 0px 5px 16px;
+    border-bottom: solid;
+    border-top: solid;
+    border-bottom-color: var(--4-color);
+    border-top-color: var(--4-color);
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-top: 0.3%;
+}
+.navegacion{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    margin-left: 5px;
+    display:flex;
+    align-items:center;
+    font-weight:900;
+    color:var(--font-color-reverse)
+}
+.logo img{
+    border-radius:50%;
+}
+.Menu {
+    display: flex;
+}
+
+.Menu li{
+    padding: 0 10px;
+}
+.Menu div{
+    display: flex;
+}
+.Menu button li{
+    padding: 0 10px;
+}
+.Menu button {
+    padding: 5px;
+    background-color: var(--1-color);
+    border-radius: 15px;
+    margin: 8px;
+    border-color: var(--4-color);
+    box-shadow: 0px 2px 5px;
+}
+
+.Menu button:hover{
+    background-color: var(--3-color);
+}
+/*! media querys*/
+/* en dispositivos de 0 a 760px se aplica estos */
+@media (max-width:600px){
+    .navegacion{
+        flex-direction:column;
+        margin-top:10px;
+    }
+    .Menu{
+        flex-wrap:wrap; /* ocupa */
+        justify-content:center;
+        margin:20px auto;
+    }
+}

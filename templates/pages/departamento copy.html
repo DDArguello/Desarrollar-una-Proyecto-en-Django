@@ -1,0 +1,85 @@
+{% extends 'inicio.html' %}
+
+{% block titulo %}
+  Departamentos
+{% endblock  %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/formm.css' %}">
+{% endblock  %}
+  {% block  contenido %}
+  <div class="gojo">
+    <img src="{%static 'img/Wgojou.webp' %}" width=20%
+    height=500 alt="img">
+  </div>
+  <div class="marin">
+    <img src="{%static 'img/Kmarin.webp' %}" width=20%
+    height=500 alt="img">
+  </div>
+    <section>
+      <section class="form-container">
+        <div class='form-header'>
+          <h1 class="dpto">Formulario de Departamentos</h1>
+        </div>
+        <form id="form-cargo" class="form">
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <input
+              type="text"
+              name="descripcion"
+              id="descripcion"
+              placeholder="Ingrese un departamento"
+              value=""
+              required
+            />
+          </div>
+          <div class="form-check">
+            <label>Activo
+              <input type="checkbox" id="activo" checked />
+            </label>
+          </div>
+          <button 
+            id="enviar"
+            type="submit"
+            name="enviar">
+            Enviar
+          </button>
+        </form>
+        
+        <div class="consulta none table-responsive" id="consulta">
+          <h2>Listado de departamentos</h2>
+          <table class="consulta-est" id="consulta-est" border="1.5">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody class="detalle-est" id="detalle-est">
+              <tr>
+                <td>1</td>
+                  <td>Física</td>
+                  <td>Activo</td>
+                  <td class="accion">
+                    <button>✏️</button>
+                    <button>❌</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Tics</td>
+                  <td>Inactivo</td>
+                  <td class="accion">
+                    <button>✏️</button>
+                    <button>❌</button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        </section>
+    </section>
+  {% endblock  %}

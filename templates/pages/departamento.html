@@ -1,0 +1,36 @@
+{% extends 'inicio.html' %}
+
+{% block titulo %}
+  Departamentos
+{% endblock  %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/formm.css' %}">
+{% endblock  %}
+  {% block  contenido %}
+  <div class="gojo">
+    <img style="margin-top: 7%;" src="{%static 'img/Wgojou.webp' %}" width=14%
+    height=400 alt="img">
+  </div>
+  <div class="marin">
+    <img style="margin-top: 7%;" src="{%static 'img/Kmarin.webp' %}" width=14%
+    height=400 alt="img">
+  </div>
+    <section>
+      <section class="form-container">
+        <div class='form-header'>
+          <h1 class="dpto">Formulario de Departamentos</h1>
+        </div>
+        <form method='POST' id="form-depa" class="form">
+          {% csrf_token %}
+          {{depaForm.as_p}}
+          <button 
+            id="enviar"
+            type="submit"
+            name="enviar">
+            {{accion}}
+          </button>
+        </form> 
+      </section>
+    
+    {% endblock %}
