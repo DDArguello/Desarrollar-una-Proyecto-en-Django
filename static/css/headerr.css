@@ -53,16 +53,4 @@
 .Menu button:hover{
     background-color: var(--3-color);
 }
-/*! media querys*/
-/* en dispositivos de 0 a 760px se aplica estos */
-@media (max-width:600px){
-    .navegacion{
-        flex-direction:column;
-        margin-top:10px;
-    }
-    .Menu{
-        flex-wrap:wrap; /* ocupa */
-        justify-content:center;
-        margin:20px auto;
-    }
-}
+
