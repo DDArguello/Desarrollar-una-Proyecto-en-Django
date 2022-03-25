@@ -10,22 +10,32 @@
 
 {% block  contenido %}
 
-</div>
-    <section class="form-container">
+    <div class="gojo" >
+        <img style="margin-top: 2%;" src="{%static 'img/Wgojou.webp' %}" width=14%
+        height=350 alt="img">
+    </div>
+
+
+    <div class="marin">
+      <img style="margin-top: 2%;" src="{%static 'img/Kmarin.webp' %}" width=14%
+      height=350 alt="img">
+    </div>
+    <section class="form-container" style="margin-bottom:14%;">
         <div class='form-header'>
             <h1>Listado de Empleados</h1>
         </div>
         
         <div class="consulta none table-responsive" id="consulta">
-            <table class="consulta-est" id="consulta-est" border="1.5">
+            <a class="aña" href="{% url 'empleado' %}">
+                <span>+ agregar empleado</span>
+            </a>
+            <table class="consulta-est" id="consulta-est" border="1.5" style="display:block;">
                 <thead>
-                    <a class="aña" href="{% url 'empleado' %}">
-                        <span>+ agregar</span>
-                    </a>
+                    
                 <tr>
                     <th>#</th>
                     <th>Nombre</th>
-                    <th>Cedula</th>
+                    <th>Cédula</th>
                     <th>Cargo</th>
                     <th>Departamento</th>
                     <th>Sueldo</th>
@@ -66,14 +76,6 @@
     <img src="../img/Macovit_art.png" 
     width=100% height="300" alt="logo"> -->
     </section>
-    <div class="gojo" style="margin-bottom: 14%;">
-        <img style="margin-top: -30%;" src="{%static 'img/Wgojou.webp' %}" width=14%
-        height=400 alt="img">
-    </div>
     
-    
-    <div class="marin">
-        <img style="margin-top: -32%;" src="{%static 'img/Kmarin.webp' %}" width=14%
-        height=400 alt="img">
     
 {% endblock  %}

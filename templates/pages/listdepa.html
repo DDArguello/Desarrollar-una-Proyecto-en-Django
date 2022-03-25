@@ -8,57 +8,58 @@
   <link rel="stylesheet" href="{% static 'css/formm.css' %}">
 {% endblock  %}
 
-{% block  contenido %}
+  {% block  contenido %}
+  <div class="gojo">
+    <img style="margin-top: 2%;" src="{%static 'img/Wgojou.webp' %}" width=14%
+    height=360 alt="img">
+  </div>
 
-    <section>
-        <section class="form-container">
-            <div class='form-header'>
-            <h1 class="dpto">Listado de Departamentos</h1>
-            </div>
-            <div class="consulta none table-responsive" id="consulta">
-                <table class="consulta-est" id="consulta-est" border="1.5">
-                  <thead>
-                    <a class="aña" href="{% url 'departamento' %}">
-                      <span>+ agregar</span>
-                    </a>
-                    <tr>
-                      <th>#</th>
-                      <th>Descripción</th>
-                      <th>Estado</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody class="detalle-est" id="detalle-est">
-                    {% for departamento in departamentos %}
+  <div class="marin">
+    <img style="margin-top: 2%;" src="{%static 'img/Kmarin.webp' %}" width=14%
+    height=360 alt="img">
+  </div>
+      <section>
+          <section class="form-container">
+              <div class='form-header'>
+                <h1 class="dpto">Listado de Departamentos</h1>
+              </div>
+              <div class="consulta none table-responsive" id="consulta">
+                <a class="aña" href="{% url 'departamento' %}">
+                  <span>+ agregar departamento</span>
+                </a>
+                  <table class="consulta-est" id="consulta-est" border="1.5">
+                    <thead>
+                      
                       <tr>
-                        <td>{{departamento.id}}</td>
-                        <td>{{departamento.descripcion}}</td>
-                        {% if departamento.estado == True %}
-                            <td>Activo</td>
-                        {% else %}
-                            <td>Inactivo</td>
-                        {% endif %}
-            
-                        <td class="accion">
-                          {% comment %} <button>✏️</button>
-                          <button>❌</button> {% endcomment %}
-                          <a href="{% url 'editarDepa' departamento.id %}">✏️</a>
-                          <a href="{% url 'eliminarDepa' departamento.id %}">❌</a>
-                        </td>
+                        <th>#</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
                       </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody class="detalle-est" id="detalle-est">
+                      {% for departamento in departamentos %}
+                        <tr>
+                          <td>{{departamento.id}}</td>
+                          <td>{{departamento.descripcion}}</td>
+                          {% if departamento.estado == True %}
+                              <td>Activo</td>
+                          {% else %}
+                              <td>Inactivo</td>
+                          {% endif %}
+              
+                          <td class="accion">
+                            {% comment %} <button>✏️</button>
+                            <button>❌</button> {% endcomment %}
+                            <a href="{% url 'editarDepa' departamento.id %}">✏️</a>
+                            <a href="{% url 'eliminarDepa' departamento.id %}">❌</a>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
               </div> 
-        </section> 
-        <div class="gojo">
-          <img style="margin-top: -32%;" src="{%static 'img/Wgojou.webp' %}" width=14%
-          height=400 alt="img">
-      </div>
-      
-      
-      <div class="marin">
-          <img style="margin-top: -32%;" src="{%static 'img/Kmarin.webp' %}" width=14%
-          height=400 alt="img">
-      </div>
-{% endblock  %}
+          </section> 
+      </section> 
+          
+  {% endblock  %}

@@ -55,7 +55,6 @@ body{
     background-image: url("/static/img/board.jpg");
     background-size: 100%;
     background-color: var(--2-color);
-    min-width: 1200px;
 }
 
 .logo img{
@@ -133,5 +132,11 @@ li{
 
     100%{
         color: green;
+    }
+}
+
+@media (max-width:912px){
+    body{
+        background-image: url(/static/img/boardd.png);
     }
 }

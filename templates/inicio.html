@@ -44,20 +44,21 @@
     </header>
     
     <main>
-        
+      
         {% block  contenido %}
-        <h1 class="tit">Bienvenidos a nuestra primera página web con Django-Html-Css </h1>
+          <h1 class="tit">Bienvenidos a nuestra primera página web con Django-Html-Css </h1>
           <section class="imagen">
             <img src="{%static 'img/F3.png' %}" 
             width=50% height=300 alt="logo">
+          </section>
             
         {% endblock  %}
-        
+        <div class="cuad"> 
+          <p class="pie">&copy; 2022 - Estudiantes de Ing. en software - UNEMI</p>
+        </div> 
         
     </main>
-    
+
   </body>
-  <div class="cuad"> 
-    <p class="pie">&copy; 2022 - Estudiantes de Ing. en software - UNEMI</p>
-  </div>
+  
 </html>

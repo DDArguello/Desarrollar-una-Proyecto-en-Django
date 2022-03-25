@@ -54,3 +54,14 @@
     background-color: var(--3-color);
 }
 
+@media (max-width:600px){
+    .navegacion{
+        flex-direction:column;
+        margin-top:10px;
+    }
+    .Menu{
+        justify-content:center;
+        margin:20px auto;
+    }
+}
+
