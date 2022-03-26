@@ -3,12 +3,13 @@ from http.client import ImproperConnectionState
 from tkinter import Widget
 from django import forms
 from .models import Cargo,Departamento, Empleado
+from .validaciones import validate_cardepa, validate_nombre
 
 class CargoForm(forms.ModelForm):
     class Meta:
         model=Cargo
         fields=['descripcion','estado']
-        widgets={'descripcion':forms.TextInput(attrs={
+        widgets={'descripcion':forms.TextInput( attrs={
             'placeholder':'Ingrese un cargo',
             'class':'form-group',
             'required':True,

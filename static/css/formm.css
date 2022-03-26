@@ -204,3 +204,20 @@ form{
     margin-top: 2%;
     border: none;
 }
+
+.errorlist li{
+    color:var(--font-color-reverse);
+    display: block;
+    background-color: var(--secundary-color);
+    width: 18%;
+    padding-left: 7px;
+    
+}
+
+@media (max-width:600px){
+    .errorlist li{
+        flex-direction:column;
+        margin-top:10px;
+        display: initial;
+    }
+}

@@ -1,7 +1,11 @@
+from wsgiref.validate import validator
+from django.forms import TextInput
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .forms import CargoForm,DepaForm,EmplForm
 from .models import Cargo,Departamento,Empleado
+from .validaciones import validate_nombre
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 
@@ -14,12 +18,10 @@ def crearCargo(request):
         cargo_form=CargoForm(request.POST)
         if cargo_form.is_valid():
             cargo_form.save()
+            return redirect('listcargo')
     cargo_form=CargoForm()
     cargos=Cargo.objects.all()
-    if request.method=="POST":
-        return render(request,"pages/listcargo.html",{'cargoForm':cargo_form, 'cargos':cargos})
-    else:
-        return render(request,"pages/cargo.html",{'cargoForm':cargo_form, 'cargos':cargos, 'accion':'Registrar'})
+    return render(request,"pages/cargo.html",{'cargoForm':cargo_form, 'cargos':cargos, 'accion':'Registrar'})
 def listcargo(request):
     cargo_form=CargoForm()
     cargos=Cargo.objects.all()
@@ -54,13 +56,10 @@ def crearDepartamento(request):
         depa_form=DepaForm(request.POST)
         if depa_form.is_valid():
             depa_form.save()
+            return redirect('listdepa')
     depa_form=DepaForm()
     dptos=Departamento.objects.all()
-    if request.method=="POST":
-        return render(request,"pages/listdepa.html",{'depaForm':depa_form, 'departamentos':dptos})
-    else:
-        return render(request,"pages/departamento.html",{'depaForm':depa_form, 'departamentos':dptos, 'accion':'Registrar'})
-   
+    return render(request,"pages/departamento.html",{'depaForm':depa_form, 'departamentos':dptos, 'accion':'Registrar'})
 
 def listdepa(request):
     depa_form=DepaForm()
@@ -95,12 +94,10 @@ def crearEmpleado(request):
         empl_form=EmplForm(request.POST)
         if empl_form.is_valid():
             empl_form.save()
+            return redirect('listempl')
     empl_form=EmplForm()
     emplds=Empleado.objects.all()
-    if request.method=="POST":
-        return render(request,"pages/listempl.html",{'emplForm':empl_form, 'empleados':emplds})
-    else:
-        return render(request,"pages/empleado.html",{'emplForm':empl_form, 'empleados':emplds, 'accion':'Registrar'})
+    return render(request,"pages/empleado.html",{'emplForm':empl_form, 'empleados':emplds, 'accion':'Registrar'})
 
 def listempl(request):
     empl_form=EmplForm()

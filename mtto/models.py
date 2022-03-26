@@ -1,10 +1,13 @@
 from django.db import models
 from email.policy import default
+from .validaciones import validate_cardepa, validate_nombre
+
+from mtto.validaciones import validate_even
 
 # Create your models here.
 
 class Cargo(models.Model):
-    descripcion=models.CharField(max_length=100,blank=True,null=True)
+    descripcion=models.CharField(validators=[validate_cardepa],max_length=100,blank=False,null=True)
     estado=models.BooleanField(default=True)
     fecha_creacion=models.DateTimeField(auto_now_add=False,auto_now=True)
     class Meta:
@@ -15,7 +18,7 @@ class Cargo(models.Model):
         return "{}".format(self.descripcion)
 
 class Departamento(models.Model):
-    descripcion=models.CharField(max_length=100,blank=True,null=True)
+    descripcion=models.CharField(validators=[validate_cardepa],max_length=100,blank=False,null=True)
     estado=models.BooleanField(default=True)
     fecha_creacion=models.DateTimeField(auto_now_add=False,auto_now=True)
     class Meta:
@@ -27,8 +30,8 @@ class Departamento(models.Model):
 
 class Empleado(models.Model):
     codigo=models.AutoField(primary_key=True)
-    nombre=models.CharField(max_length=100,blank=False,null=True)
-    cedula=models.CharField(max_length=10,blank=False,null=True)
+    nombre=models.CharField(validators=[validate_nombre],max_length=100,blank=False,null=True)
+    cedula=models.IntegerField(validators=[validate_even],blank=False,null=True)
     cargo=models.ForeignKey(Cargo,on_delete=models.CASCADE)
     departamento=models.ForeignKey(Departamento,on_delete=models.CASCADE)
     sueldo=models.DecimalField(max_digits=10,decimal_places=2)
